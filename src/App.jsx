@@ -4,6 +4,7 @@ import Scoreboard   from './components/Scoreboard'
 import EventFeed    from './components/EventFeed'
 import NewEventForm from './components/NewEventForm'
 import PresenceIndicator from './components/PresenceIndicator'   // [B]
+import StatsPanel from './components/StatsPanel' 
 
 export default function App() {
   const [match,  setMatch]  = useState(null)
@@ -126,6 +127,7 @@ export default function App() {
         onGoalAway={goalAway}
         onReset={resetScore}
       />
+      <StatsPanel events={events} />    {/* [D] */}
 
       <NewEventForm />
 
