@@ -1,6 +1,6 @@
 # Tarea Individual D — Panel de estadísticas en vivo
 
-**Estudiante asignado:** ___________________________  
+**Estudiante asignado:** Kate Rodriguez  
 **Feature de Realtime:** Estado derivado del stream de `INSERT`
 
 ---

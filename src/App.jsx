@@ -4,6 +4,7 @@ import Scoreboard   from './components/Scoreboard'
 import EventFeed    from './components/EventFeed'
 import NewEventForm from './components/NewEventForm'
 import ToastContainer from './components/ToastContainer'
+import StatsPanel from './components/StatsPanel' 
 
 export default function App() {
   const [match,  setMatch]  = useState(null)
@@ -142,6 +143,7 @@ export default function App() {
         onGoalAway={goalAway}
         onReset={resetScore}
       />
+      <StatsPanel events={events} />    {/* [D] */}
 
       <NewEventForm onInsert={(id) => localInsertIds.current.add(id)} />
 
