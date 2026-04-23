@@ -1,6 +1,6 @@
 # Tarea Individual B — Usuarios conectados en vivo (Presence)
 
-**Estudiante asignado:** ___________________________  
+**Estudiante asignado:** Fernando Medina Dominguez  
 **Feature de Realtime:** Supabase Presence
 
 ---
