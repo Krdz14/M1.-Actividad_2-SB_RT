@@ -14,7 +14,7 @@ const EVENT_TYPES = [
   'Otro',
 ]
 
-export default function NewEventForm() {
+export default function NewEventForm({ onInsert }) {
   const [eventType,   setEventType]   = useState(EVENT_TYPES[0])
   const [minute,      setMinute]      = useState('')
   const [description, setDescription] = useState('')
@@ -25,11 +25,22 @@ export default function NewEventForm() {
     e.preventDefault()
     setLoading(true)
 
-    await supabase.from('match_events').insert({
-      event_type:  eventType,
-      minute:      minute ? parseInt(minute, 10) : null,
-      description: description.trim() || null,
-    })
+    const { data } = await supabase
+      .from('match_events')
+      .insert({
+        event_type:  eventType,
+        minute:      minute ? parseInt(minute, 10) : null,
+        description: description.trim() || null,
+      })
+      .select('id')
+      .single()
+
+    // [C] Registrar el id antes de que llegue el evento Realtime
+    console.log('📝 Evento insertado con id:', data?.id)
+    if (data?.id && onInsert) {
+      console.log('📌 Guardando id en localInsertIds')
+      onInsert(data.id)
+    }
 
     setMinute('')
     setDescription('')
